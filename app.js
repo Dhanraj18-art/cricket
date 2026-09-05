@@ -325,16 +325,16 @@ function renderTeams() {
 
                         <h3>
                             ${escapeHTML(
-            team.name
-        )}
+                                team.name
+                            )}
                         </h3>
 
                         <p>
                             Captain:
                             ${escapeHTML(
-            team.captain ||
-            "Not assigned"
-        )}
+                                team.captain ||
+                                "Not assigned"
+                            )}
                         </p>
 
                     </div>
@@ -342,8 +342,8 @@ function renderTeams() {
                     <div class="team-short">
 
                         ${escapeHTML(
-            team.short
-        )}
+                            team.short
+                        )}
 
                     </div>
 
@@ -827,16 +827,16 @@ function renderPlayers() {
 
                                 <h3>
                                     ${escapeHTML(
-                player.name
-            )}
+                                        player.name
+                                    )}
                                 </h3>
 
                                 <p>
                                     ${escapeHTML(
-                team
-                    ? team.name
-                    : "Unknown"
-            )}
+                                        team
+                                        ? team.name
+                                        : "Unknown"
+                                    )}
                                 </p>
 
                             </div>
@@ -897,8 +897,8 @@ function renderPlayers() {
 
                             <strong>
                                 ${battingAverage(
-                player
-            )}
+                                    player
+                                )}
                             </strong>
 
                             <small>AVG</small>
@@ -910,8 +910,8 @@ function renderPlayers() {
 
                             <strong>
                                 ${strikeRate(
-                player
-            )}
+                                    player
+                                )}
                             </strong>
 
                             <small>SR</small>
@@ -956,8 +956,8 @@ function renderPlayers() {
 
                             <strong>
                                 ${economy(
-                player
-            )}
+                                    player
+                                )}
                             </strong>
 
                             <small>ECO</small>
@@ -1083,9 +1083,10 @@ function distributeTeams(
                     index + 1,
 
                 name:
-                    `Division ${String.fromCharCode(
-                        65 + index
-                    )
+                    `Division ${
+                        String.fromCharCode(
+                            65 + index
+                        )
                     }`,
 
                 teams: [],
@@ -1105,8 +1106,8 @@ function distributeTeams(
                 index %
                 divisionCount
             ]
-                .teams
-                .push(team);
+            .teams
+            .push(team);
 
         }
     );
@@ -1426,24 +1427,25 @@ function renderTournament() {
                         division-team-grid
                         ">
 
-                        ${division.teams
-                        .map(
-                            team => `
+                        ${
+                            division.teams
+                                .map(
+                                    team => `
 
                                     <div
                                         class="
                                         division-team">
 
                                         ${escapeHTML(
-                                team.name
-                            )}
+                                            team.name
+                                        )}
 
                                     </div>
 
                                 `
-                        )
-                        .join("")
-                    }
+                                )
+                                .join("")
+                        }
 
                     </div>
 
@@ -1459,9 +1461,10 @@ function renderTournament() {
                     </h3>
 
 
-                    ${division.matches
-                        .map(
-                            match => `
+                    ${
+                        division.matches
+                            .map(
+                                match => `
 
                                 <div
                                     class="fixture">
@@ -1473,14 +1476,14 @@ function renderTournament() {
                                             fixture-teams">
 
                                             ${escapeHTML(
-                                match.teamA
-                            )}
+                                                match.teamA
+                                            )}
 
                                             vs
 
                                             ${escapeHTML(
-                                match.teamB
-                            )}
+                                                match.teamB
+                                            )}
 
                                         </div>
 
@@ -1509,8 +1512,8 @@ function renderTournament() {
                                 </div>
 
                             `
-                        )
-                        .join("")
+                            )
+                            .join("")
                     }
 
 
@@ -1647,80 +1650,91 @@ function renderPointsTables() {
 
                                     <tbody>
 
-                                        ${sorted
-                            .map(
-                                (
-                                    team,
-                                    index
-                                ) => `
+                                        ${
+                                            sorted
+                                                .map(
+                                                    (
+                                                        team,
+                                                        index
+                                                    ) => `
 
                                                     <tr
                                                         class="
-                                                        ${index
-                                        <
-                                        4
-                                        ? "qualified"
-                                        : ""
-                                    }
+                                                        ${
+                                                            index
+                                                            <
+                                                            4
+                                                            ? "qualified"
+                                                            : ""
+                                                        }
                                                         ">
 
                                                         <td>
-                                                            ${index
-                                    +
-                                    1
-                                    }
+                                                            ${
+                                                                index
+                                                                +
+                                                                1
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${escapeHTML(
-                                        team.teamName
-                                    )
-                                    }
+                                                            ${
+                                                                escapeHTML(
+                                                                    team.teamName
+                                                                )
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${team.played
-                                    }
+                                                            ${
+                                                                team.played
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${team.wins
-                                    }
+                                                            ${
+                                                                team.wins
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${team.losses
-                                    }
+                                                            ${
+                                                                team.losses
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${team.ties
-                                    }
+                                                            ${
+                                                                team.ties
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${team.noResults
-                                    }
+                                                            ${
+                                                                team.noResults
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${team.points
-                                    }
+                                                            ${
+                                                                team.points
+                                                            }
                                                         </td>
 
                                                         <td>
-                                                            ${team.nrr.toFixed(
-                                        3
-                                    )
-                                    }
+                                                            ${
+                                                                team.nrr.toFixed(
+                                                                    3
+                                                                )
+                                                            }
                                                         </td>
 
                                                     </tr>
 
                                                 `
-                            )
-                            .join("")
-                        }
+                                                )
+                                                .join("")
+                                        }
 
                                     </tbody>
 
@@ -1820,29 +1834,29 @@ function renderKnockout() {
 
 
                                 ${createSemiFinal(
-                        "Semi Final 1",
-                        qualified[0]
-                            ? qualified[0]
-                                .teamName
-                            : "TBD",
-                        qualified[3]
-                            ? qualified[3]
-                                .teamName
-                            : "TBD"
-                    )}
+                                    "Semi Final 1",
+                                    qualified[0]
+                                    ? qualified[0]
+                                        .teamName
+                                    : "TBD",
+                                    qualified[3]
+                                    ? qualified[3]
+                                        .teamName
+                                    : "TBD"
+                                )}
 
 
                                 ${createSemiFinal(
-                        "Semi Final 2",
-                        qualified[1]
-                            ? qualified[1]
-                                .teamName
-                            : "TBD",
-                        qualified[2]
-                            ? qualified[2]
-                                .teamName
-                            : "TBD"
-                    )}
+                                    "Semi Final 2",
+                                    qualified[1]
+                                    ? qualified[1]
+                                        .teamName
+                                    : "TBD",
+                                    qualified[2]
+                                    ? qualified[2]
+                                        .teamName
+                                    : "TBD"
+                                )}
 
 
                             </div>
@@ -1912,8 +1926,8 @@ function createSemiFinal(
                 class="match-team">
 
                 ${escapeHTML(
-        teamA
-    )}
+                    teamA
+                )}
 
             </div>
 
@@ -1922,8 +1936,8 @@ function createSemiFinal(
                 class="match-team">
 
                 ${escapeHTML(
-        teamB
-    )}
+                    teamB
+                )}
 
             </div>
 
@@ -2002,14 +2016,14 @@ function renderMatches() {
                                             fixture-teams">
 
                                             ${escapeHTML(
-                                match.teamA
-                            )}
+                                                match.teamA
+                                            )}
 
                                             vs
 
                                             ${escapeHTML(
-                                match.teamB
-                            )}
+                                                match.teamB
+                                            )}
 
                                         </div>
 
@@ -2209,8 +2223,8 @@ function renderScoringArea() {
                 class="score-team">
 
                 ${escapeHTML(
-        selectedMatch.teamA
-    )}
+                    selectedMatch.teamA
+                )}
 
             </div>
 
@@ -2434,9 +2448,10 @@ function renderScoringArea() {
             <div
                 class="ball-history">
 
-                ${score.ballsHistory
-            .map(
-                ball => `
+                ${
+                    score.ballsHistory
+                        .map(
+                            ball => `
 
                             <div
                                 class="ball">
@@ -2446,9 +2461,9 @@ function renderScoringArea() {
                             </div>
 
                         `
-            )
-            .join("")
-        }
+                        )
+                        .join("")
+                }
 
             </div>
 
@@ -2570,8 +2585,8 @@ function scoreExtra(
         match.score.ballsHistory
             .push(
                 type === "bye"
-                    ? "B"
-                    : "Lb"
+                ? "B"
+                : "Lb"
             );
 
     }
@@ -2834,8 +2849,8 @@ function updateDashboard() {
         "totalDivisions"
     ).textContent =
         tournament
-            ? tournament.divisions.length
-            : 0;
+        ? tournament.divisions.length
+        : 0;
 
 
     let totalMatches = 0;
@@ -2892,9 +2907,9 @@ function updateDashboard() {
         "championName"
     ).textContent =
         tournament &&
-            tournament.champion
-            ? tournament.champion
-            : "TBD";
+        tournament.champion
+        ? tournament.champion
+        : "TBD";
 
 }
 
