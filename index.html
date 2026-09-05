@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kannalli Cricket Tournament</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>🏏 KANNALLI CRICKET</h1>
+            <p>TOURNAMENT SCORE MAKER</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- MATCH SETUP -->
+        <section class="card" id="setup">
+
+            <h2>Match Setup</h2>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Team A</label>
+                    <input id="teamA" placeholder="Example: Kannalli Warriors">
+                </div>
+
+                <div>
+                    <label>Team B</label>
+                    <input id="teamB" placeholder="Example: Kannalli Kings">
+                </div>
+
+                <div>
+                    <label>Overs</label>
+                    <input id="totalOvers" type="number" value="10" min="1">
+                </div>
+
+            </div>
+
+            <button class="primary" onclick="startMatch()">
+                Start Match
+            </button>
+
+        </section>
+        <!-- OPENING BATSMEN -->
+
+        <section class="card">
+
+            <h2>🏏 Opening Batsmen</h2>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Striker</label>
+                    <input id="strikerInput" type="text" placeholder="Enter striker name">
+                </div>
+
+                <div>
+                    <label>Non-Striker</label>
+                    <input id="nonStrikerInput" type="text" placeholder="Enter non-striker name">
+                </div>
+
+                <div>
+                    <label>Opening Bowler</label>
+                    <input id="bowlerInput" type="text" placeholder="Enter bowler name">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCOREBOARD -->
+        <section class="scoreboard card">
+
+            <div class="team-name" id="battingTeam">
+                TEAM A
+            </div>
+
+            <div class="score">
+                <span id="runs">0</span>/<span id="wickets">0</span>
+            </div>
+
+            <div class="overs">
+                Overs: <span id="overs">0.0</span>
+            </div>
+
+            <div class="run-rate">
+                Run Rate: <span id="runRate">0.00</span>
+            </div>
+
+        </section>
+
+
+        <!-- BATSMEN -->
+        <section class="card">
+
+            <h2>🏃 Batsmen</h2>
+
+            <div class="players">
+
+                <div class="player active">
+                    <strong id="strikerName">Striker</strong>
+                    <span>
+                        <span id="strikerRuns">0</span>
+                        (<span id="strikerBalls">0</span>)
+                    </span>
+                </div>
+
+                <div class="player">
+                    <strong id="nonStrikerName">Non-Striker</strong>
+                    <span>
+                        <span id="nonStrikerRuns">0</span>
+                        (<span id="nonStrikerBalls">0</span>)
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+        <div class="bowler-box">
+
+            <h3>🎯 Current Bowler</h3>
+
+            <strong id="currentBowler">
+                Bowler
+            </strong>
+
+            <p>
+                Overs:
+                <span id="bowlerOvers">0.0</span>
+                |
+                Runs:
+                <span id="bowlerRuns">0</span>
+                |
+                Wickets:
+                <span id="bowlerWickets">0</span>
+            </p>
+
+        </div>
+
+        <!-- SCORING BUTTONS -->
+        <section class="card">
+
+            <h2>⚡ Ball Scoring</h2>
+
+            <div class="run-buttons">
+
+                <button onclick="scoreRun(0)">0</button>
+                <button onclick="scoreRun(1)">1</button>
+                <button onclick="scoreRun(2)">2</button>
+                <button onclick="scoreRun(3)">3</button>
+                <button onclick="scoreRun(4)">4</button>
+                <button onclick="scoreRun(6)">6</button>
+
+            </div>
+
+            <div class="extra-buttons">
+
+                <button onclick="wicket()">WICKET</button>
+                <button onclick="extra('wide')">WIDE</button>
+                <button onclick="extra('noball')">NO BALL</button>
+                <button onclick="extra('bye')">BYE</button>
+                <button onclick="extra('legbye')">LEG BYE</button>
+
+            </div>
+
+            <button class="undo" onclick="undoBall()">
+                ↩ Undo Last Ball
+            </button>
+
+        </section>
+
+
+        <!-- BALL HISTORY -->
+        <section class="card">
+
+            <h2>📋 Ball History</h2>
+
+            <div id="ballHistory">
+                No balls yet.
+            </div>
+
+        </section>
+
+
+        <!-- SCORECARD -->
+        <section class="card">
+
+            <h2>📊 Scorecard</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Batsman</th>
+                        <th>Runs</th>
+                        <th>Balls</th>
+                        <th>4s</th>
+                        <th>6s</th>
+                    </tr>
+                </thead>
+
+                <tbody id="scorecard">
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Kannalli Cricket Tournament</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
